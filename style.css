@@ -265,6 +265,10 @@ body {
   transition: transform 0.3s ease;
 }
 
+.completado {
+  color: #117a8b;
+}
+
 .elemento-tarea:hover {
   border-color: #667eea;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);

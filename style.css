@@ -1,0 +1,503 @@
+
+/* 
+        ========================================
+        🎨 ESTILOS BASE - PASO 0
+        ========================================
+        Este archivo contiene SOLO HTML y CSS.
+        Todavía NO hay JavaScript - es nuestra base.
+        5
+        📚 CONCEPTOS EN ESTE PASO:
+        - Estructura HTML semántica
+        - Clases CSS para identificar elementos
+        - IDs únicos para JavaScript posterior
+        - Diseño responsivo básico
+        ========================================
+        */
+
+/* === RESETEO Y CONFIGURACIÓN GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Incluye padding y border en el tamaño total */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  /* Altura mínima de toda la ventana */
+  padding: 20px;
+  line-height: 1.6;
+  /* Mejor legibilidad */
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.contenedor-principal {
+  max-width: 700px;
+  /* Ancho máximo para buena legibilidad */
+  margin: 0 auto;
+  /* Centrar horizontalmente */
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* Evita que el contenido se salga */
+  animation: aparecerSuave 0.6s ease-out;
+}
+
+@keyframes aparecerSuave {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === ENCABEZADO === */
+.encabezado {
+  background: linear-gradient(45deg, #ff6b6b, #ffa500);
+  color: white;
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.encabezado::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+}
+
+.titulo-principal {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.subtitulo {
+  font-size: 1.2em;
+  opacity: 0.95;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+/* === SECCIÓN DE ENTRADA === */
+.seccion-entrada {
+  padding: 35px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #dee2e6;
+}
+
+.contenedor-entrada {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  /* Responsivo en pantallas pequeñas */
+}
+
+/* INPUT DE TEXTO */
+#campoTarea {
+  flex: 1;
+  min-width: 250px;
+  /* Ancho mínimo para pantallas pequeñas */
+  padding: 18px 20px;
+  border: 3px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+#campoTarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+#campoTarea::placeholder {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+/* BOTÓN AGREGAR */
+#botonAgregar {
+  padding: 18px 30px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  /* Evita que el texto se corte */
+  min-width: 140px;
+}
+
+#botonAgregar:hover {
+  background: linear-gradient(135deg, #218838, #1ea080);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+#botonAgregar:active {
+  transform: translateY(0);
+}
+
+#botonAgregar:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* === FILTROS === */
+.contenedor-filtros {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boton-filtro {
+  padding: 10px 20px;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.boton-filtro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.boton-filtro:hover::before {
+  left: 100%;
+}
+
+.boton-filtro.activo {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.boton-filtro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+}
+
+/* === SECCIÓN DE TAREAS === */
+.seccion-tareas {
+  padding: 30px 35px 40px;
+  background: white;
+}
+
+.contador-tareas {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #495057;
+  font-weight: 500;
+  padding: 15px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+/* === LISTA DE TAREAS === */
+#listaTareas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.elemento-tarea {
+  background: white;
+  border: 2px solid #f1f3f4;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.elemento-tarea::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.elemento-tarea:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.elemento-tarea:hover::before {
+  transform: scaleY(1);
+}
+
+.elemento-tarea.completada {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  opacity: 0.8;
+}
+
+/* === CHECKBOX === */
+.checkbox-tarea {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.checkbox-tarea:checked {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  border-color: #28a745;
+}
+
+.checkbox-tarea:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* === TEXTO DE TAREA === */
+.texto-tarea {
+  flex: 1;
+  font-size: 16px;
+  color: #212529;
+  transition: all 0.3s ease;
+  word-break: break-word;
+  /* Evita desbordamiento de texto largo */
+}
+
+.texto-tarea.completada {
+  text-decoration: line-through;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* === BOTONES DE ACCIÓN === */
+.acciones-tarea {
+  display: flex;
+  gap: 8px;
+}
+
+.boton-editar,
+.boton-eliminar {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.boton-editar {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+  color: white;
+}
+
+.boton-editar:hover {
+  background: linear-gradient(135deg, #138496, #117a8b);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+}
+
+.boton-eliminar {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.boton-eliminar:hover {
+  background: linear-gradient(135deg, #c82333, #a71e2a);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* === ESTADO VACÍO === */
+.estado-vacio {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.icono-vacio {
+  font-size: 5em;
+  margin-bottom: 20px;
+  opacity: 0.6;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.titulo-vacio {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.descripcion-vacia {
+  font-size: 1em;
+  opacity: 0.8;
+}
+
+/* === CLASES UTILITARIAS === */
+.oculto {
+  display: none !important;
+}
+
+.desvaneciendo {
+  animation: desvanecer 0.3s ease-out forwards;
+}
+
+@keyframes desvanecer {
+  to {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+  }
+}
+
+.apareciendo {
+  animation: aparecer 0.3s ease-out;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    margin: 10px;
+    border-radius: 15px;
+  }
+
+  .encabezado {
+    padding: 30px 20px;
+  }
+
+  .titulo-principal {
+    font-size: 2.2em;
+  }
+
+  .seccion-entrada {
+    padding: 25px;
+  }
+
+  .contenedor-entrada {
+    flex-direction: column;
+  }
+
+  #campoTarea {
+    min-width: auto;
+  }
+
+  .seccion-tareas {
+    padding: 25px;
+  }
+
+  .elemento-tarea {
+    padding: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .acciones-tarea {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .titulo-principal {
+    font-size: 1.8em;
+  }
+
+  .subtitulo {
+    font-size: 1em;
+  }
+
+  .contenedor-filtros {
+    gap: 8px;
+  }
+
+  .boton-filtro {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}

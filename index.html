@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+  <title>PASO 0: Base HTML y CSS - Aprendiendo DOM</title>
+</head>
+
+<body>
+  <!-- 
+    ========================================
+    📖 ESTRUCTURA HTML - PASO 0
+    ========================================
+    
+    🎯 OBJETIVO: Entender la estructura HTML
+    
+    📝 ELEMENTOS IMPORTANTES A OBSERVAR:
+    
+    1. IDs únicos (para JavaScript posterior):
+       - campoTarea
+       - botonAgregar  
+       - listaTareas
+       - contadorTareas
+       - estadoVacio
+    
+    2. Clases CSS (para estilos y selección):
+       - contenedor-principal
+       - elemento-tarea
+       - boton-filtro
+       - checkbox-tarea
+       - texto-tarea
+    
+    3. Atributos data-* (para almacenar información):
+       - data-filtro (en botones de filtro)
+       - data-id-tarea (se agregará después)
+    
+    4. Estructura semántica:
+       - header para encabezado
+       - main para contenido principal
+       - section para secciones
+       - ul/li para listas
+    ========================================
+    -->
+
+  <div class="contenedor-principal">
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+      <h1 class="titulo-principal">📝 Mi Lista de Tareas</h1>
+      <p class="subtitulo">Aprende DOM paso a paso - PASO 0: Base HTML/CSS</p>
+    </header>
+
+    <!-- SECCIÓN DE ENTRADA -->
+    <section class="seccion-entrada">
+      <div class="contenedor-entrada">
+        <input type="text" id="campoTarea" placeholder="¿Qué necesitas hacer hoy?" maxlength="100" autocomplete="off">
+        <button id="botonAgregar" disabled>
+          ➕ Agregar
+        </button>
+      </div>
+
+      <!-- FILTROS -->
+      <div class="contenedor-filtros">
+        <button class="boton-filtro activo" data-filtro="todas">
+          🔍 Todas
+        </button>
+        <button class="boton-filtro" data-filtro="pendientes">
+          ⏳ Pendientes
+        </button>
+        <button class="boton-filtro" data-filtro="completadas">
+          ✅ Completadas
+        </button>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE TAREAS -->
+    <main class="seccion-tareas">
+      <div class="contador-tareas">
+        <span id="contadorTareas">0 tareas en total</span>
+      </div>
+
+      <!-- LISTA DE TAREAS -->
+      <ul id="listaTareas">
+        <!-- 
+                📝 NOTA: Las tareas se agregarán aquí dinámicamente con JavaScript
+                
+                Ejemplo de estructura que crearemos después:
+                
+                <li class="elemento-tarea" data-id-tarea="1">
+                    <input type="checkbox" class="checkbox-tarea">
+                    <span class="texto-tarea">Mi primera tarea</span>
+                    <div class="acciones-tarea">
+                        <button class="boton-editar">✏️ Editar</button>
+                        <button class="boton-eliminar">🗑️ Eliminar</button>
+                    </div>
+                </li>
+                -->
+      </ul>
+
+      <!-- ESTADO VACÍO -->
+      <div id="estadoVacio" class="estado-vacio">
+        <div class="icono-vacio">📋</div>
+        <h3 class="titulo-vacio">¡No hay tareas!</h3>
+        <p class="descripcion-vacia">Agrega tu primera tarea para comenzar a organizar tu día</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    /*
+    ========================================
+    🚫 PASO 0: SIN JAVASCRIPT AÚN
+    ========================================
+    
+    En este paso SOLO tenemos HTML y CSS.
+    
+    🔍 TAREAS PARA HACER:
+    
+    1. ✅ Observa la estructura HTML
+    2. ✅ Identifica los elementos con ID
+    3. ✅ Nota las clases CSS utilizadas
+    4. ✅ Prueba a escribir en el input (no funciona aún)
+    5. ✅ Intenta hacer clic en los botones (no funciona aún)
+    
+    📋 LO QUE APRENDEREMOS EN LOS SIGUIENTES PASOS:
+    
+    - PASO 1: Conectar con el DOM y obtener referencias
+    - PASO 2: Crear elementos dinámicamente  
+    - PASO 3: Manejar eventos de usuario
+    - PASO 4: Manipular estilos con JavaScript
+    - PASO 5: Implementar filtros
+    - PASO 6: Persistencia con localStorage
+    - PASO 7: Proyecto final pulido
+    
+    🎯 PRÓXIMO PASO: paso-1-referencias.html
+    ========================================
+    */
+
+    console.log( "📋 PASO 0 COMPLETADO" );
+    console.log( "✅ HTML y CSS cargados correctamente" );
+    console.log( "🎯 Próximo paso: Aprender a conectar con el DOM" );
+    console.log( "📁 Archivo siguiente: paso-1-referencias.html" );
+  </script>
+</body>
+
+</html>

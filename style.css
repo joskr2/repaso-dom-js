@@ -1,18 +1,17 @@
-
 /* 
-        ========================================
-        🎨 ESTILOS BASE - PASO 0
-        ========================================
-        Este archivo contiene SOLO HTML y CSS.
-        Todavía NO hay JavaScript - es nuestra base.
-        5
-        📚 CONCEPTOS EN ESTE PASO:
-        - Estructura HTML semántica
-        - Clases CSS para identificar elementos
-        - IDs únicos para JavaScript posterior
-        - Diseño responsivo básico
-        ========================================
-        */
+    ========================================
+    🎨 ESTILOS BASE - PASO 0
+    ========================================
+    Este archivo contiene SOLO HTML y CSS.
+    Todavía NO hay JavaScript - es nuestra base.
+    5
+    📚 CONCEPTOS EN ESTE PASO:
+    - Estructura HTML semántica
+    - Clases CSS para identificar elementos
+    - IDs únicos para JavaScript posterior
+    - Diseño responsivo básico
+    ========================================
+    */
 
 /* === RESETEO Y CONFIGURACIÓN GLOBAL === */
 * {
@@ -501,3 +500,4 @@ body {
     font-size: 13px;
   }
 }
+
